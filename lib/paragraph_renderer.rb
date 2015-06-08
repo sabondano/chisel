@@ -1,10 +1,17 @@
 class ParagraphRenderer
 
 	def initialize(input)
-		@input = input
+		@markdown = input
 	end
 
 	def parse
-		@input = "<p>#{@input}</p>"
+		if # less than two new line characters in a row
+			@html = "<p>#{@markdown}</p>"
+		else
+			# do something magic here
 	end
 end
+
+
+
+

@@ -16,4 +16,12 @@ class ParagraphRendererTest < Minitest::Test
 
 		assert_equal html, result
 	end
+
+	def test_two_chunks_of_text_with_two_line_breaks_are_turned_into_two_paragraphs
+		two_paragraphs = "This is the first line of the first paragraph.\n\nThis is the first line of the second paragraph."
+		result = ParagraphRenderer.new(two_paragraphs).parse
+		html = "<p>This is the first line of the first paragraph.</p>\n<p>This is the first line of the second paragraph.</p>"
+
+		assert_equal html, result
+	end
 end
