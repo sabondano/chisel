@@ -5,10 +5,19 @@ class ParagraphRenderer
 	end
 
 	def parse
-		if # less than two new line characters in a row
-			@html = "<p>#{@markdown}</p>"
-		else
-			# do something magic here
+		wrapped_paragraphs.join("\n")
+	end
+
+	private
+
+	def wrapped_paragraphs
+		paragraphs.map do |paragraph|
+			"<p>#{paragraph}</p>"
+		end
+	end
+
+	def paragraphs
+		@markdown.split("\n\n")
 	end
 end
 
