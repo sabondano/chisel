@@ -1,6 +1,5 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative '../lib/paragraph_renderer'
+require_relative 'test_helper'
+require 'paragraph_renderer'
 
 class ParagraphRendererTest < Minitest::Test
 	def test_a_one_line_chunk_of_text_not_starting_with_hash_character_is_turned_into_a_paragraph
