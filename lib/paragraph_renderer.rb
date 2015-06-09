@@ -26,7 +26,7 @@ class ParagraphRenderer
   end
 
   def parse_paragraph(paragraph)
-    @per_paragraph_renderers.reduce(paragraph) do |renderer, partially_parsed|
+    @per_paragraph_renderers.reduce(paragraph) do |partially_parsed, renderer|
       renderer.parse(partially_parsed)
     end
   end
