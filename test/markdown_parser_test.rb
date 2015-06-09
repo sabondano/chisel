@@ -1,4 +1,4 @@
-require_relative 'test_helper'
+require './test/test_helper'
 require 'paragraph_renderer'
 require 'header_renderer'
 require 'markdown_parser'
