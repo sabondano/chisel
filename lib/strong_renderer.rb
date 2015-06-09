@@ -9,6 +9,12 @@ class StrongRenderer
     end
   end
 
+  def wraps_line_in_tag?(input)
+    false
+  end
+
+  private
+
   def has_strong?(input)
     double_asterisks_count = 0
     words(input).map do |word|
