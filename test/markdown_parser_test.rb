@@ -1,6 +1,8 @@
 require './test/test_helper'
 require 'paragraph_renderer'
 require 'header_renderer'
+require 'strong_renderer'
+require 'emphasis_renderer'
 require 'markdown_parser'
 
 class MarkdownParserTest < Minitest::Test
