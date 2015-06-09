@@ -1,4 +1,3 @@
-require 'pry'
 class StrongRenderer
   def parse(input)
     if has_strong?(input)

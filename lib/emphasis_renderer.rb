@@ -1,9 +1,8 @@
 class EmphasisRenderer
   def parse(input)
-    if words_are_emphasized?(input)
-      emphasized_part = input[/\*.+\*/]
-      input_without_asterisks = strip_asterisks(emphasized_part)
-      input.gsub(/\*.+\*/, "<em>#{input_without_asterisks}</em>")
+    if has_emphasis?(input)
+      partially_parsed = input.sub("*", "<em>")
+      partially_parsed.sub("*", "</em>")
     else
       input
     end
@@ -15,20 +14,24 @@ class EmphasisRenderer
 
   private
 
-  def strip_asterisks(input)
-    input.chars[1..-2].join("")
-  end
-
-  def words_are_emphasized?(input)
-    input.chars.count("*") >= 2 && (words_are_strong?(input) == false)
-  end
-
-  def words_are_strong?(input)
-    @strong = false
-    input.chars.each_cons(2) do |element|
-      @strong = true if element[0] == element[1]
+  def has_emphasis?(input)
+    asterisk_count = 0
+    words(input).map do |word|
+      asterisk_count += 1 if starts_with_one_asterisk?(word)
+      asterisk_count += 1 if ends_with_one_asterisk?(word)
     end
-    @strong
   end
-end
 
+  def words(input)
+    input.split(" ")
+  end
+
+  def starts_with_one_asterisk?(word)
+    word[0] == "*"
+  end
+
+  def ends_with_one_asterisk?(words)
+  words[-1] == "*"
+  end
+
+end
