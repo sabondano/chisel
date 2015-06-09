@@ -1,10 +1,15 @@
-class MarkdownParser
+require_relative './paragraph_renderer'
 
-	def initialize(path)
-		@markdown_file = path
+class MarkdownParser
+	def initialize(input)
+		@markdown = input
 	end
 
 	def chisel
-		# magic goes here
+    per_paragraph_renderers = [
+        HeaderRenderer.new
+    ]
+    document = ParagraphRenderer.new(@markdown, per_paragraph_renderers)
+    document.parse
 	end
 end

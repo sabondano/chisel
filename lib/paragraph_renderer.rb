@@ -1,7 +1,8 @@
 class ParagraphRenderer
 
-	def initialize(input)
+	def initialize(input, per_paragraph_renderers=[])
 		@markdown = input
+    @per_paragraph_renderers = per_paragraph_renderers
 	end
 
 	def parse
@@ -12,13 +13,23 @@ class ParagraphRenderer
 
 	def wrapped_paragraphs
 		paragraphs.map do |paragraph|
-			"<p>#{paragraph}</p>"
+      parsed = parse_paragraph(paragraph)
+      unless @per_paragraph_renderers.any? { |r| r.wraps_line_in_tag?(paragraph) }
+        parsed = "<p>#{parsed}</p>"
+      end
+      parsed
 		end
 	end
 
 	def paragraphs
 		@markdown.split("\n\n")
-	end
+  end
+
+  def parse_paragraph(paragraph)
+    @per_paragraph_renderers.reduce(paragraph) do |renderer, partially_parsed|
+      renderer.parse(partially_parsed)
+    end
+  end
 end
 
 

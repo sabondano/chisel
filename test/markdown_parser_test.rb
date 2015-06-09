@@ -1,19 +1,26 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative '../lib/markdown_parser'
+require_relative 'test_helper'
+require 'paragraph_renderer'
+require 'header_renderer'
+require 'markdown_parser'
 
 class MarkdownParserTest < Minitest::Test
 	# acceptance test
 	def test_if_it_parses_markdown_per_specification_example
-		skip
-		result = MarkdownParser.new("my_input_test.markdown").chisel
-		example_file_path = File.join(fixtures_directory, "my_output_test.html")
-		example = File.read(example_file_path)
+    skip
+    input_markdown = read_fixture_file("my_input_test.markdown")
+    expected_output = read_fixture_file("my_output_test.html")
 
-		assert_equal normalize_whitespace(example), normalize_whitespace(result)
+		result = MarkdownParser.new(input_markdown).chisel
+
+		assert_equal normalize_whitespace(expected_output), normalize_whitespace(result)
 	end
 
 	private
+
+  def read_fixture_file(file_name)
+    absolute_path = File.join(fixtures_directory, file_name)
+    File.read(absolute_path)
+  end
 
 	def fixtures_directory
 		File.expand_path("../fixtures", __FILE__)

@@ -9,6 +9,10 @@ class HeaderRenderer
     end
   end
 
+  def wraps_line_in_tag?(input)
+    line_is_a_header?(input)
+  end
+
   private
 
   def count_leading_hashes(input)
