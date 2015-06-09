@@ -20,7 +20,15 @@ class EmphasisRenderer
   end
 
   def words_are_emphasized?(input)
-    input =~ /\*.+\*/
+    input.chars.count("*") >= 2 && (words_are_strong?(input) == false)
+  end
+
+  def words_are_strong?(input)
+    @strong = false
+    input.chars.each_cons(2) do |element|
+      @strong = true if element[0] == element[1]
+    end
+    @strong
   end
 end
 
