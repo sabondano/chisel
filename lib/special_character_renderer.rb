@@ -3,7 +3,7 @@ class SpecialCharacterRenderer
     input.gsub("&", "&amp;")
   end
 
-  def wraps_line_in_tags?(input)
+  def wraps_line_in_tag?(input)
     false
   end
 
