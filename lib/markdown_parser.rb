@@ -9,6 +9,7 @@ class MarkdownParser
         StrongRenderer.new,
         ListRenderer.new,
         EmphasisRenderer.new,
+        LinkRenderer.new,
         SpecialCharacterRenderer.new
     ]
     ParagraphRenderer.new(@markdown, per_paragraph_renderers).parse

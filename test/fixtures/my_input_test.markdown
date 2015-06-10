@@ -10,3 +10,9 @@ My favorite cuisines are:
 * Sushi
 * Barbeque
 * Mexican
+
+1. Sushi
+2. Barbeque
+3. Mexican
+
+[This link](http://example.net/) has no title attribute.
