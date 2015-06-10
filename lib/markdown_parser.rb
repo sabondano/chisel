@@ -7,6 +7,7 @@ class MarkdownParser
     per_paragraph_renderers = [
         HeaderRenderer.new,
         StrongRenderer.new,
+        ListRenderer.new,
         EmphasisRenderer.new,
         SpecialCharacterRenderer.new
     ]

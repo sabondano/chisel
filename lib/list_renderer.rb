@@ -16,7 +16,9 @@ class ListRenderer
   private
 
   def lines_are_list?(input)
-    lines(input).any? { |line| line[0] == "*" }
+    lines(input).any? do |line|
+      line[0] == "*" && line.chars.count("*") < 2
+    end
   end
 
   def lines(input)
