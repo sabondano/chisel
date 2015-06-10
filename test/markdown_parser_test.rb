@@ -15,7 +15,17 @@ class MarkdownParserTest < Minitest::Test
 		result = MarkdownParser.new(input_markdown).chisel
 
 		assert_equal normalize_whitespace(expected_output), normalize_whitespace(result)
-	end
+  end
+
+  # integration tests
+  def test_it_parses_strong_inside_of_emphasis
+    input = "My *emphasized and **stronged** text* is awesome."
+    expected = "<p>My <em>emphasized and <strong>stronged</strong> text</em> is awesome.</p>"
+
+    output = MarkdownParser.new(input).chisel
+
+    assert_equal expected, output
+  end
 
 	private
 
