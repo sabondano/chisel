@@ -18,4 +18,22 @@ class StrongRendererTest < Minitest::Test
 
     assert_equal expected, output
   end
+
+  def test_a_sentence_with_multiple_stronged_words
+    input = "This is a **test** and here is **another**"
+    expected = "This is a <strong>test</strong> and here is <strong>another</strong>"
+
+    output = StrongRenderer.new.parse(input)
+
+    assert_equal expected, output
+  end
+
+  def test_a_sentence_with_a_lot_of_stronged_words
+    input = "**This** is a **test** and **here** is **another**"
+    expected = "<strong>This</strong> is a <strong>test</strong> and <strong>here</strong> is <strong>another</strong>"
+
+    output = StrongRenderer.new.parse(input)
+
+    assert_equal expected, output
+  end
 end
