@@ -18,7 +18,7 @@ class EmphasisRenderer
       asterisk_count += 1 if starts_with_one_asterisk?(word)
       asterisk_count += 1 if ends_with_one_asterisk?(word)
     end
-    true if asterisk_count >= 2
+    asterisk_count >= 2
   end
 
   def change_tags(input)
@@ -34,8 +34,8 @@ class EmphasisRenderer
     word[0] == "*"
   end
 
-  def ends_with_one_asterisk?(words)
-  words[-1] == "*"
+  def ends_with_one_asterisk?(word)
+  word[-1] == "*" && word.length > 1
   end
 
 end

@@ -37,4 +37,13 @@ class EmphasisRendererTest < Minitest::Test
 
     assert_equal expected, output
   end
+
+  def test_has_emphasis_method_workd_with_input_that_includes_one_asterisk
+    input = "* this is a line item"
+    expected = "* this is a line item"
+
+    output = EmphasisRenderer.new.parse(input)
+
+    assert_equal expected, output
+  end
 end

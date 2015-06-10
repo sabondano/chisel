@@ -41,6 +41,3 @@ class ListRenderer
     list << "</ul>"
   end
 end
-
-
-# "<ul>\n<li>#{input[2..-1]}</li>\n</ul>"
