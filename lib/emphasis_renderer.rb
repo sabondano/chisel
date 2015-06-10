@@ -1,11 +1,9 @@
 class EmphasisRenderer
   def parse(input)
-    if has_emphasis?(input)
-      partially_parsed = input.sub("*", "<em>")
-      partially_parsed.sub("*", "</em>")
-    else
-      input
+    while has_emphasis?(input) do
+      input = change_tags(input)
     end
+    input
   end
 
   def wraps_line_in_tag?(input)
@@ -20,6 +18,12 @@ class EmphasisRenderer
       asterisk_count += 1 if starts_with_one_asterisk?(word)
       asterisk_count += 1 if ends_with_one_asterisk?(word)
     end
+    true if asterisk_count >= 2
+  end
+
+  def change_tags(input)
+    partially_parsed = input.sub("*", "<em>")
+    partially_parsed.sub("*", "</em>")
   end
 
   def words(input)

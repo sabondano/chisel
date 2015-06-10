@@ -20,6 +20,15 @@ class EmphasisRendererTest < Minitest::Test
     assert_equal expected, output
   end
 
+  def test_multiple_elements_wrapped_in_differente_sets_of_asterisks
+    input = "*this* is a *test* and *something*"
+    expected = "<em>this</em> is a <em>test</em> and <em>something</em>"
+
+    output = EmphasisRenderer.new.parse(input)
+
+    assert_equal expected, output
+  end
+
   def test_sentence_with_one_word_wrapped_in_asterisks
     input = "This is a simple sentence with one word *emphasized*"
     expected = "This is a simple sentence with one word <em>emphasized</em>"
