@@ -28,4 +28,22 @@ class ListsRendererTest < Minitest::Test
 
     assert_equal expected, output
   end
+
+  def test_an_ordered_list_with_one_item
+    input = "1. sushi"
+    expected = "<ol>\n<li>sushi</li>\n</ol>"
+
+    output = ListRenderer.new.parse(input)
+
+    assert_equal expected, output
+  end
+
+  def test_an_ordered_list_with_many_items
+    input = "1. sushi\n2. mexican\n3. hawaian"
+    expected = "<ol>\n<li>sushi</li>\n<li>mexican</li>\n<li>hawaian</li>\n</ol>"
+
+    output = ListRenderer.new.parse(input)
+
+    assert_equal expected, output
+  end
 end
