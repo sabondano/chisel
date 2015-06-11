@@ -18,7 +18,7 @@ class StrongRenderer
       double_asterisks_count += 1 if starts_with_two_asterisks?(word)
       double_asterisks_count += 1 if ends_with_two_asterisks?(word)
     end
-    true if double_asterisks_count >= 2
+    double_asterisks_count >= 2
   end
 
   def change_tags(input)
