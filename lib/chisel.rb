@@ -7,6 +7,7 @@ require_relative '../lib/paragraph_renderer'
 require_relative '../lib/special_character_renderer'
 require_relative '../lib/strong_renderer'
 require_relative '../lib/image_renderer'
+require_relative '../lib/blockquote_renderer'
 
 input_filename = ARGV[0]
 output_filename = ARGV[1]

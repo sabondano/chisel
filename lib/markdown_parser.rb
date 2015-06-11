@@ -5,6 +5,7 @@ class MarkdownParser
 
 	def chisel
     per_paragraph_renderers = [
+        BlockquoteRenderer.new,
         HeaderRenderer.new,
         StrongRenderer.new,
         ListRenderer.new,

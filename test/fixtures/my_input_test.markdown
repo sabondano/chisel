@@ -18,3 +18,7 @@ My favorite cuisines are:
 [This link](http://example.net/) has no title attribute.
 
 ![Alt text](/path/to/img.jpg 'Optional title')
+
+> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+> consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+> Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
