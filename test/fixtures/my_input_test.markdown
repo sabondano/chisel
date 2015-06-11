@@ -16,3 +16,5 @@ My favorite cuisines are:
 3. Mexican
 
 [This link](http://example.net/) has no title attribute.
+
+![Alt text](/path/to/img.jpg "Optional title")
