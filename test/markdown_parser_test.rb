@@ -9,7 +9,6 @@ require 'markdown_parser'
 class MarkdownParserTest < Minitest::Test
 	# acceptance test
 	def test_if_it_parses_markdown_per_specification_example
-    skip
     input_markdown = read_fixture_file("my_input_test.markdown")
     expected_output = read_fixture_file("my_output_test.html")
 

@@ -9,6 +9,7 @@ class MarkdownParser
         StrongRenderer.new,
         ListRenderer.new,
         EmphasisRenderer.new,
+        ImageRenderer.new,
         LinkRenderer.new,
         SpecialCharacterRenderer.new
     ]

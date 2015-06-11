@@ -17,4 +17,4 @@ My favorite cuisines are:
 
 [This link](http://example.net/) has no title attribute.
 
-![Alt text](/path/to/img.jpg "Optional title")
+![Alt text](/path/to/img.jpg 'Optional title')
