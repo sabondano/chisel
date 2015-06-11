@@ -1,5 +1,3 @@
-require 'pry'
-
 class LinkRenderer
   def parse(input)
     while links_left_to_parse?(input) do
