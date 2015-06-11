@@ -1,4 +1,3 @@
-require 'pry'
 class ImageRenderer
   def parse(input)
     if any_lines_are_images?(input)
@@ -33,7 +32,7 @@ class ImageRenderer
   end
 
   def build_with_title_attr(input)
-    wip = []
+    wip        = []
     url        = get_url(input)
     alt_text   = get_alt_text(input)
     title_attr = get_title_attr(input)
@@ -41,7 +40,7 @@ class ImageRenderer
   end
 
   def build_without_title_attr(input)
-    wip = []
+    wip      = []
     url      = get_url(input)
     alt_text = get_alt_text(input)
     wip << "<img src='#{url}' alt='#{alt_text}'/>"
