@@ -32,11 +32,10 @@ class ImageRenderer
   end
 
   def build_with_title_attr(input)
-    wip        = []
     url        = get_url(input)
     alt_text   = get_alt_text(input)
     title_attr = get_title_attr(input)
-    wip << "<img src='#{url}' alt='#{alt_text}' title='#{title_attr}'/>"
+    ["<img src='#{url}' alt='#{alt_text}' title='#{title_attr}'/>"]
   end
 
   def build_without_title_attr(input)
